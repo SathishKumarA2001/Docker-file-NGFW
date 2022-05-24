@@ -6,13 +6,14 @@ RUN pip install requests
 RUN apt-get -y install apache2
 RUN apt-get -y install net-tools apt-utils
 ENV DEBIAN_FRONTEND=noninteractive
-WORKDIR /root/
-
+WORKDIR /root
+RUN rm /var/www/html -rf
 VOLUME ["/var/www/","/etc/apache2", "/root/"]
 
-#COPY ./NGFW-with-VPN-Filteration /root/server/
-#COPY ./script /root/
-#COPY ./html /var/www/html
+COPY ./NGFW-code/ /root/
+COPY ./script /root/script/
+COPY ./html /var/www/html
 CMD /root/script/entry.sh
+
 
 EXPOSE 9999

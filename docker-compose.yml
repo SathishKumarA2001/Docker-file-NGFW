@@ -8,9 +8,9 @@ services:
       - 9999:9999
     volumes:
       - userdata:/var/log/apache2/
-      - ./html:/var/www/html
-      - ./script/:/root/script/
-      - ./NGFW-with-VPN-Filteration/:/root
+      - ./NGFW_Docker/html:/var/www/html
+      - ./NGFW_Docker/script/:/root/script/
+      - ./NGFW_Docker/NGFW-code/:/root/
 
 volumes:
   userdata:
